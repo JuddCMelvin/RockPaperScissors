@@ -1,0 +1,4 @@
+1. Connect buttons so that when clicked they get passed to a 
+a function that decided the winner
+2. Now that when clicked we update the userSlecection per the button, 
+now we need to change the inner text of the div based on that selection

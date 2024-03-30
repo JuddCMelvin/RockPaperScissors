@@ -1,0 +1,9 @@
+#game-screen {
+    background-color: #f0f0f0bf; /* Set background color to light gray */
+    width: 600px; 
+    height: 600px; 
+    display: flex; 
+    margin: 0 auto; 
+    justify-content: center;
+    align-items: center;
+}

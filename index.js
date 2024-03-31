@@ -4,27 +4,38 @@ let userSelection = 'rock';
 let computerSelection = Math.random();                                                          
 
 //conditional logic goes here
-if (computerSelection < 0.34) {
+if (computerSelection < 0.20) {
 	computerSelection = "rock";
-} else if(computerSelection <= 0.67) {
+} else if(computerSelection <= 0.40) {
 	computerSelection = "paper";
-} else {
+} else if(computerSelection <= 0.60) {
 	computerSelection = "scissors";
+} else if(computerSelection <= 0.80) {
+	computerSelection = "lizard";
+} else {
+	computerSelection = "spock";
 }
 
 //compare the userSeletion and the computerSelection to determine the winner
 let compare = function(selection1,selection2){
     if(selection1===selection2){
-        return "The result is a tie!";
+        return "Tie!";
     }
     else if(selection1==="rock"){
-        if(selection2==="scissors"){
-            return "rock wins"
-        }
-        else if(selection2==="paper"){
+        if(selection2==="scissors") {
+            return "Rock Crushes Scissors in to dust"
+        } else if (selection2 === "lizard") {
+            return "Rock pulverized lizard!";
+    } 
+    else if (selection2==="lizard") {
+        if(selection2==="paper"){
             return "paper wins";
+        }else if (selection2 === "lizard") {
+            return "Rock pulverized lizard!";
+        } else if (selection2 === "paper") {
+            return "Paper covers rock!";
         }
-    }
+    } 
     else if(selection1==="paper"){
         if(selection2==="scissors"){
             return "scissors win"
@@ -40,9 +51,17 @@ let compare = function(selection1,selection2){
         else if(selection2==="rock"){
             return "rock wins";
         }
-    }    
+    }   
+    else if(selection1==="lizard"){
+        if(selection2==="paper"){
+            return "scissors win"
+        }
+        else if(selection2==="rock"){
+            return "rock wins";
+        }
+    }   
 }
-// console.log(compare(userSelection,computerSelection));
+console.log(compare(userSelection,computerSelection));
 
 function handleUserChoice(choice) {
     console.log('User selected:', choice);
@@ -51,9 +70,11 @@ function handleUserChoice(choice) {
     document.getElementById('result').innerText = resultText; // Update the text of the <p> tag with the result
 }
 
-const rockButton = document.getElementById('rockButton');
-const paperButton = document.getElementById('paperButton');
-const scissorsButton = document.getElementById('scissorsButton');
+// const rockButton = document.getElementById('rockButton');
+// const paperButton = document.getElementById('paperButton');
+// const scissorsButton = document.getElementById('scissorsButton');
+// const lizardButton = document.getElementById('lizardButton');
+// const spockButton = document.getElementById('spockButton');
 
 rockButton.addEventListener('click', function() {
     handleUserChoice('rock');
